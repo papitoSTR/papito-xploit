@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>papitoXplo¡T | NexGen Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+    <audio id="bgMusic" loop>
+        <source src="https://cdn.yupra.my.id/yp/b0oqy7k8.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="brand">
+            <img src="https://cdn.yupra.my.id/yp/36c1286x.jpg" class="sidebar-logo">
+            <span>NEXGEN</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="javascript:void(0)" class="nav-item active" onclick="switchPage('dashboard', this)">
+                <i class="fas fa-terminal"></i> Dashboard
+            </a>
+            <a href="javascript:void(0)" class="nav-item" onclick="switchPage('projects', this)">
+                <i class="fas fa-project-diagram"></i> Projects
+            </a>
+            <div class="nav-divider"></div>
+            <a href="javascript:void(0)" class="nav-item" id="themeBtn"><i class="fas fa-ghost"></i> Light Mode</a>
+            <a href="javascript:void(0)" class="nav-item music-toggle" id="musicBtn" onclick="toggleMusic()">
+                <i class="fas fa-volume-mute"></i> Music: OFF
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <section id="page-dashboard" class="page-content active">
+            <div class="profile-container">
+                <div class="profile-card profile-glow">
+                    <img src="https://cdn.yupra.my.id/yp/36c1286x.jpg" class="profile-img">
+                    <h1 class="glitch-text">papitoXplo¡T</h1>
+                    <p class="role">Security Researcher & Web Enthusiast</p>
+                    <div class="stats-box">
+                        <i class="fas fa-eye"></i> <span id="visitor-count">100</span> Visitors Detected
+                    </div>
+                    <p class="bio">Digital Control Center. Fokus pada riset keamanan digital dan pengembangan alat teknologi NexGen.</p>
+                    <div class="social-grid">
+                        <a href="https://wa.me/628xxxxxxxx" class="btn-soc wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://t.me/papitoXploit" class="btn-soc tele"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                        <a href="https://github.com/papitoXploit" class="btn-soc gh"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#" class="btn-soc ch"><i class="fas fa-satellite-dish"></i> Channel</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-projects" class="page-content">
+            <h2 class="section-head">System Tools</h2>
+            <div class="dashboard-grid">
+                <div class="glass-card float-anim">
+                    <div class="card-icon wa-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>WA Direct</h3>
+                    <div class="input-group">
+                        <input type="number" id="waNumber" placeholder="628xxx">
+                        <button onclick="sendWA()"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+                <div class="glass-card float-anim" style="animation-delay: 0.2s;">
+                    <div class="card-icon pass-icon"><i class="fas fa-fingerprint"></i></div>
+                    <h3>Pass Gen</h3>
+                    <div class="display-box" id="passDisplay">********</div>
+                    <button class="btn-primary" onclick="generatePass()">Generate Key</button>
+                </div>
+                <div class="glass-card float-anim" style="animation-delay: 0.4s;">
+                    <div class="card-icon dev-icon"><i class="fas fa-bug"></i></div>
+                    <h3>Source Viewer</h3>
+                    <div class="input-group">
+                        <input type="text" id="webUrl" placeholder="https://example.com">
+                        <button onclick="fetchSource()"><i class="fas fa-skull"></i></button>
+                    </div>
+                    <span id="sourceStatus" class="status-info">Ready to Scrap</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="codeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Source Code Result</h3>
+                <button onclick="closeModal()">&times;</button>
+            </div>
+            <textarea id="codeResult" readonly></textarea>
+            <button class="btn-primary" onclick="copyCode()">Copy Full Code</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
