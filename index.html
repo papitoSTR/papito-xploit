@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>papitoXplo¡T | Deep-Web Controller</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <title>PAPITO-V4 | Luxury Cyber Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,60 +12,106 @@
 
     <canvas id="matrixCanvas"></canvas>
 
-    <audio id="bgMusic" loop>
-        <source src="https://cdn.yupra.my.id/yp/b0oqy7k8.mp3" type="audio/mpeg">
-    </audio>
+    <div id="login-overlay" class="login-wrapper-sys">
+        <div class="login-box">
+            <div class="login-header">
+                <img src="https://cdn.yupra.my.id/yp/36c1286x.jpg" class="login-logo">
+                <h2>CENTRAL CORE LOGIN</h2>
+                <p>Authorized Personnel Only</p>
+            </div>
+            <div class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="usn" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="pw" placeholder="Password">
+                </div>
+                <button onclick="checkLogin()" class="login-btn">ACCESS SYSTEM</button>
+                <p id="login-err" class="err-msg"></p>
+            </div>
+        </div>
+    </div>
 
-    <div class="menu-toggle" id="menuToggle"><i class="fas fa-skull"></i></div>
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars-staggered"></i></div>
 
     <aside class="sidebar" id="sidebar">
-        <div class="brand">
-            <img src="https://cdn.yupra.my.id/yp/36c1286x.jpg" class="sidebar-logo">
-            <span>PAPITO-V3</span>
+        <div class="brand-box">
+            <div class="logo-wrapper">
+                <img src="https://cdn.yupra.my.id/yp/36c1286x.jpg" alt="Logo">
+            </div>
+            <div class="brand-text">
+                <span class="main-name">PAPITO</span>
+                <span class="sub-name">XPLOIT V4</span>
+            </div>
         </div>
-        <nav class="nav-menu">
-            <a href="javascript:void(0)" class="nav-item active" onclick="switchPage('dashboard', this)">
-                <i class="fas fa-user-secret"></i> Dashboard
-            </a>
-            <a href="javascript:void(0)" class="nav-item" onclick="switchPage('ai-terminal', this)">
-                <i class="fas fa-brain"></i> Papito AI
-            </a>
-            <a href="javascript:void(0)" class="nav-item" onclick="switchPage('extra-tools', this)">
-                <i class="fas fa-radiation"></i> Dark Tools
-            </a>
-            <div class="nav-divider"></div>
-            <a href="javascript:void(0)" class="nav-item music-toggle" id="musicBtn" onclick="toggleMusic()">
-                <i class="fas fa-volume-up"></i> SYSTEM AUDIO
-            </a>
+        
+        <nav class="nav-container">
+            <div class="nav-group">
+                <p class="nav-label">Main System</p>
+                <a href="javascript:void(0)" class="nav-link" onclick="switchPage('dashboard', this)">
+                    <i class="fas fa-home-alt"></i> <span>Overview</span>
+                </a>
+                <a href="javascript:void(0)" class="nav-link active" onclick="switchPage('ai-terminal', this)">
+                    <i class="fas fa-brain-circuit"></i> <span>Papito AI</span>
+                </a>
+            </div>
+            <div class="nav-group">
+                <p class="nav-label">Cyber Tools</p>
+                <a href="javascript:void(0)" class="nav-link" onclick="switchPage('extra-tools', this)">
+                    <i class="fas fa-shield-slash"></i> <span>Dark Core</span>
+                </a>
+            </div>
         </nav>
+
+        <div class="sidebar-footer">
+            <button class="music-card" onclick="toggleMusic()" id="musicBtn">
+                <i class="fas fa-compact-disc"></i>
+                <div class="m-info">
+                    <span>System Audio</span>
+                    <small>Click to Toggle</small>
+                </div>
+            </button>
+        </div>
     </aside>
 
     <main class="main-content">
-        <section id="page-dashboard" class="page-content active">
-            <div class="profile-card profile-glow">
-                <div class="scanline"></div>
-                <img src="https://cdn.yupra.my.id/yp/36c1286x.jpg" class="profile-img">
-                <h1 class="glitch-text" data-text="papitoXplo¡T">papitoXplo¡T</h1>
-                <p class="sub-text">Digital Shadow Sovereign</p>
-                <div class="social-links">
-                    <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="soc-btn"><i class="fab fa-telegram-plane"></i></a>
+        <section id="page-ai-terminal" class="page-content active">
+            <div class="ai-container">
+                <div class="ai-header">
+                    <div class="ai-info">
+                        <div class="status-pulse"></div>
+                        <div>
+                            <h4>PAPITO ARTIFICIAL INTELLIGENCE</h4>
+                            <small>Dec 30 | High Priority Access</small>
+                        </div>
+                    </div>
+                    <div class="ai-actions"><button onclick="clearChat()"><i class="fas fa-trash-alt"></i></button></div>
+                </div>
+                <div class="chat-wrapper" id="ai-chat-body">
+                    <div class="msg-box ai-msg">
+                        <div class="msg-icon"><i class="fas fa-skull"></i></div>
+                        <div class="msg-content">papito siap melayanimu tuan 😈 katakan apa yang kamu mau kami dari kegelapan digital active 😍☠️</div>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <input type="text" id="ai-input" placeholder="Type commands, Master..." autocomplete="off">
+                        <button onclick="askAI()"><i class="fas fa-paper-plane"></i></button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="page-ai-terminal" class="page-content">
-            <div class="terminal-container">
-                <div class="term-nav">
-                    <span><i class="fas fa-microchip"></i> Papito-AI System</span>
-                    <span id="ai-status">CONNECTION: SECURE</span>
-                </div>
-                <div class="term-window" id="ai-chat-body">
-                    <div class="ai-msg">papito siap melayanimu tuan 😈 katakan apa yang kamu mau kami dari kegelapan digital active 😍☠️</div>
-                </div>
-                <div class="term-input-box">
-                    <input type="text" id="ai-input" placeholder="Perintah tuan?..." autocomplete="off">
-                    <button onclick="askAI()"><i class="fas fa-paper-plane"></i></button>
+        <section id="page-dashboard" class="page-content">
+            <div class="profile-card profile-glow">
+                <img src="https://cdn.yupra.my.id/yp/36c1286x.jpg" class="profile-img">
+                <h1 class="glitch-text" data-text="papitoXplo¡T">papitoXplo¡T</h1>
+                <p>Digital Shadow Sovereign</p>
+                <div class="social-flex">
+                    <a href="https://wa.me/6281" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://t.me/papitostr" class="soc-btn"><i class="fab fa-telegram-plane"></i></a>
                 </div>
             </div>
         </section>
@@ -73,31 +119,16 @@
         <section id="page-extra-tools" class="page-content">
             <div class="tools-grid">
                 <div class="t-card">
-                    <i class="fas fa-user-ninja"></i>
-                    <h3>Identity Gen</h3>
-                    <div class="res" id="idGen">ID: NULL</div>
-                    <button onclick="genID()">GENERATE</button>
-                </div>
-                <div class="t-card">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3>CORS Proxy</h3>
-                    <input type="text" id="pUrl" placeholder="Target URL">
+                    <i class="fas fa-globe"></i>
+                    <h3>Source Grabber</h3>
+                    <input type="text" id="pUrl" placeholder="https://target.com">
                     <button onclick="fetchSource()">SCRAP CODE</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="sourceModal" class="modal">
-        <div class="modal-box">
-            <textarea id="srcResult" readonly></textarea>
-            <div class="modal-btns">
-                <button onclick="copySrc()">COPY</button>
-                <button onclick="closeSrc()" style="background:#ff0055">CLOSE</button>
-            </div>
-        </div>
-    </div>
-
+    <audio id="bgMusic" loop><source src="https://cdn.yupra.my.id/yp/b0oqy7k8.mp3" type="audio/mpeg"></audio>
     <script src="script.js"></script>
 </body>
 </html>
